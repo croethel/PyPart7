@@ -1,6 +1,17 @@
 from typing import Dict
 import random
 
+# Steps to do:
+# 1. Update greetings dictionary to lists
+# 2. Update greet function
+# 3. Update language_added function
+# 4. Update language_updated function
+# 5. ? Update admin_mode - create option to select which greeting to change?
+
+
+
+
+
 ## Dictionaries
 
 lang_dict = {
