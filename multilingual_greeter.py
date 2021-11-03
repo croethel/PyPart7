@@ -4,16 +4,22 @@ from typing import Dict
 # Use integers for keys and strings for values.
 # Example: Key = 1. Value = 'English'.
 lang_dict = {
+    1: 'English',
+    2: 'Spanish'
 }
 
 # Populate this dictionary with appropriate prompts that correspond with the ids from lang_dict.
 # Example: Key = 1. Value = 'What is your name?'.
 name_prompt_dict = {
+    1: 'What is your name?',
+    2: 'Como te llamas?'
 }
 
 # Populate this dictionary with appropriate prompts that correspond with the ids from lang_dict.
 # Example: Key = 1. Value = 'Hello'.
 greetings_dict = {
+    1: 'Hello',
+    2: 'Hola'
 }
 
 
@@ -26,7 +32,9 @@ def print_language_options(lang_options: Dict[int, str]) -> None:
     Values are strings representing the name of a language
     :return: None
     """
-    pass  # remove pass statement and implement me
+    print("Please choose a language: ")
+    for key, value in lang_options.items():
+        print(f'{key}: {value}')
 
 
 def language_input() -> int:
@@ -35,7 +43,9 @@ def language_input() -> int:
 
     :return: An integer representing the language choice made by the user
     """
-    pass  # remove pass statement and implement me
+    language_choice = input("Please select a language: ")
+    return int(language_choice)
+
 
 
 def language_choice_is_valid(lang_options: Dict[int, str], lang_choice: int) -> bool:
@@ -49,7 +59,10 @@ def language_choice_is_valid(lang_options: Dict[int, str], lang_choice: int) -> 
     :param lang_choice: An integer representing the value the user selected
     :return: A boolean representing the validity of the lang_choice
     """
-    pass  # remove pass statement and implement me
+    if lang_choice in lang_options.keys():
+        return True
+    else:
+        return False
 
 
 def get_name_input(name_prompt_options: Dict[int, str], lang_choice: int) -> str:
@@ -62,7 +75,9 @@ def get_name_input(name_prompt_options: Dict[int, str], lang_choice: int) -> str
     :param lang_choice: The language the user has chosen
     :return:
     """
-    pass  # remove pass statement and implement me
+    result = name_prompt_options.get(lang_choice)
+    return result
+
 
 
 def name_input(name_prompt: str) -> str:
