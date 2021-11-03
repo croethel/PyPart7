@@ -105,15 +105,16 @@ def greet(name: str, greetings_options: Dict[int, str], lang_choice: int) -> Non
 
 
 def admin_or_user():
-    mode = (input("Please select 'Admin' or 'User' mode: ")).lower()
+    print("Welcome to the Multilingual Greeter")
+    mode = (input("\nPlease select 'Admin' or 'User' mode: ")).lower()
 
     ##Admin Mode
     if mode == "admin":
 
-        print("You are now in Admin mode.")
+        print("\nYou are now in Admin mode.\n")
         print("Please select one of the following options:")
         print("1. Add support for additional languages")
-        print("2. Update greetings for existing languages")
+        print("2. Update greetings for existing languages\n")
         mode_option = (input("Select: "))
 
         ##Additional languages
@@ -121,7 +122,7 @@ def admin_or_user():
         if mode_option == "1":
 
             ##New language inputs
-            add_language = input("Language to be added: ")
+            add_language = input("\nLanguage to be added: ")
             add_name_prompt = input("Name prompt for new language: ")
             add_greeting = input("Greeting for new language: ")
 
@@ -137,9 +138,9 @@ def admin_or_user():
             name_prompt_dict.update(new_name_prompt)
             greetings_dict.update(new_greeting)
 
-            print("New language: " + )
-            print(lang_dict, name_prompt_dict, greetings_dict)
-
+            print("\nNew Language added: " + lang_dict[new_position] + "\n"
+            "New Name Prompt added: " + name_prompt_dict[new_position] + "\n"
+            "New Greeting added: " + greetings_dict[new_position] + "\n")
 
         ##Update greetings
         ##Which language?
@@ -166,6 +167,7 @@ def admin_or_user():
     #Error
     else:
         print("Error, invalid mode selection")
+
 
 
 admin_or_user()
