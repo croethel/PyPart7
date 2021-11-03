@@ -1,7 +1,9 @@
 from unittest import TestCase
 from unittest.mock import patch
 from io import StringIO
-import multilingual_greeter_v2
+import multilingual_greeter_v2_2
+
+
 
 
 class MultilingualGreeterTest(TestCase):
