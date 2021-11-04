@@ -5,8 +5,8 @@ import random
 # 1. Update greetings dictionary to lists - done
 # 2. Update greet function - done
 # 3. Update language_added function - done (not the most efficient way)
-# 4. Update language_updated function
-# 5. ? Update admin_mode - create option to select which greeting to change?
+# 4. Update language_updated function - done
+# 5. ? Update admin_mode - create option to select which greeting to change? - done
 
 
 
