@@ -2,9 +2,9 @@ from typing import Dict
 import random
 
 # Steps to do:
-# 1. Update greetings dictionary to lists
-# 2. Update greet function
-# 3. Update language_added function
+# 1. Update greetings dictionary to lists - done
+# 2. Update greet function - done
+# 3. Update language_added function - done (not the most efficient way)
 # 4. Update language_updated function
 # 5. ? Update admin_mode - create option to select which greeting to change?
 
@@ -29,6 +29,7 @@ greetings_dict = {
     1: ['Hello', 'Good morning', 'Good afternoon'],
     2: ['Hola', 'Buenos días', 'Buenas tardes']
 }
+
 
 ## General Functions
 
@@ -109,7 +110,15 @@ def language_added():
         ## New language inputs
         add_language = input("\nLanguage to be added: ")
         add_name_prompt = input("Name prompt for new language: ")
-        add_greeting = input("Greeting for new language: ")
+        add_greeting_one = input("First greeting for new language: ")
+        add_greeting_two = input("Second greeting for new language: ")
+        add_greeting_three = input("Third greeting for new language: ")
+
+        ## 3 Greetings into a list
+        add_greeting = []
+        add_greeting.append(add_greeting_one)
+        add_greeting.append(add_greeting_two)
+        add_greeting.append(add_greeting_three)
 
         new_position = len(lang_dict)+1
 
@@ -125,20 +134,65 @@ def language_added():
 
         print("\nNew Language added: " + lang_dict[new_position] + "\n"
         "New Name Prompt added: " + name_prompt_dict[new_position] + "\n"
-        "New Greeting added: " + greetings_dict[new_position] + "\n")
+        "New Greeting added: " + str(greetings_dict[new_position]))
 
+        #print("New language added: " + lang_dict[new_position])
+        #print("New name prompt added: " + name_prompt_dict[new_position])
+        #print("New greetings added: " + str(greetings_dict[new_position]))
 
 ## Update Language Greeting [Admin Mode]
 
 def language_updated():
 
+# To update language:
+# 1. Print language options - done
+# 2. Select language to update - done
+# 3. Print current language greetings - done
+# 4. Select update an existing  or  add a new element - done
+# 5. If to update an existing greeting: - done
+    # 5a. Select which greeting to update
+    # 5b. Input new greeting
+    # 5c. Function updates greeting
+# 6. If to add a new greeting: - done
+    # 6a. Input new greeting
+    # 6b. Function to add greeting to existing list
+# 7. Print updated greetings list - done
+
     print(lang_dict)
+    update_language = int(input("Language to be updated: (Select a number) "))
+    print(greetings_dict[update_language])
+    print("1. Change an existing greeting\n"
+          "2. Create an additional greeting\n")
+    new_or_existing = int(input("Select a number: "))
+
+    #Changing an existing greeting
+    if new_or_existing == 1:
+        which_greeting = input("Greeting to remove: ")
+        i = greetings_dict[update_language].index(str(which_greeting))
+        switched_greeting = input("Updated greeting: ")
+        greetings_dict[update_language].pop(i)
+        greetings_dict[update_language].append(str(switched_greeting))
+        print("Updated greetings: " + str(greetings_dict[update_language]))
+
+
+    #Adding a new greeting
+    elif new_or_existing == 2:
+        additional_greeting = input("Additional greeting to add: ")
+        greetings_dict[update_language].append(str(additional_greeting))
+        print("Updated greetings: " + str(greetings_dict[update_language]))
+
+    else:
+        print("Error, invalid selection.")
+
+
+    ## PREVIOUS FUNCTION)
+    #print(lang_dict)
 
     ##Language update input
-    update_language = int(input("Language to be updated: (Select a number) "))
-    greeting_update = str(input("Updated greeting: "))
-    greetings_dict.update({update_language:greeting_update})
-    print(greetings_dict)
+    #update_language = int(input("Language to be updated: (Select a number) "))
+    #greeting_update = str(input("Updated greeting: "))
+    #greetings_dict.update({update_language:greeting_update})
+    #print(greetings_dict)
 
 ## User Mode
 
